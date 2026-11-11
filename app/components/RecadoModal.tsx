@@ -11,6 +11,15 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
+  // Depois que o recado é enviado, encaminha o convidado para o pagamento.
+  useEffect(() => {
+    if (status !== "sent") return;
+    const t = setTimeout(() => {
+      window.location.href = gift.link;
+    }, 2200);
+    return () => clearTimeout(t);
+  }, [status, gift.link]);
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
@@ -39,9 +48,8 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
           subject: `💌 Recado no site do casamento — de ${data.get("name")}`,
           from_name: "Site do Casamento Emilly & Ithalo",
           name: data.get("name"),
-          email: data.get("email") || undefined,
           botcheck: data.get("botcheck") ? true : undefined,
-          message: `Presente escolhido: ${gift.name}\n\nRecado:\n${data.get("message")}`,
+          message: `Presente escolhido: ${gift.name}\n\nRecado:\n${data.get("message") || "(sem recado)"}`,
         }),
       });
       const json = await res.json();
@@ -68,15 +76,17 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
         </h2>
         <p className="mt-3 text-ink/70">
           Obrigado por fazer parte do nosso começo. Emilly e Ithalo vão ler com
-          muito carinho.
+          muito carinho. Agora é só concluir o seu presente.
         </p>
-        <button
-          type="button"
-          onClick={onClose}
-          className="mt-8 rounded-full bg-navy px-8 py-3 text-sm font-semibold tracking-wide text-ivory transition-colors hover:bg-navy-700"
+        <a
+          href={gift.link}
+          className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-semibold tracking-wide text-navy transition-colors hover:bg-gold-soft"
         >
-          Fechar
-        </button>
+          Ir para o pagamento
+        </a>
+        <p className="mt-4 text-xs text-ink/45">
+          Você será redirecionado automaticamente…
+        </p>
       </div>
     );
   }
@@ -91,8 +101,8 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
         <span className="ml-2 text-xl text-ink/45">{formatBRL(gift.price)}</span>
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-ink/70">
-        O pagamento abriu em outra aba. Enquanto isso, deixe um recado para
-        Emilly &amp; Ithalo — ele vai direto para o e-mail do casal. 💌
+        Se quiser, deixe um recado para Emilly &amp; Ithalo — é opcional, só o
+        nome basta. Em seguida, você segue para o pagamento. 💌
       </p>
 
       {/* Honeypot anti-spam (escondido) */}
@@ -120,26 +130,13 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-navy">
-            Seu e-mail <span className="text-ink/40">(opcional)</span>
-          </label>
-          <input
-            name="email"
-            type="email"
-            maxLength={120}
-            placeholder="pra caso queiram te responder"
-            className="w-full rounded-xl border border-navy/15 bg-ivory px-4 py-2.5 text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-gold"
-          />
-        </div>
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-navy">
-            Recado
+            Recado <span className="text-ink/40">(opcional)</span>
           </label>
           <textarea
             name="message"
-            required
             rows={4}
             maxLength={1000}
-            placeholder="Escreva com o coração…"
+            placeholder="Escreva com o coração… (ou deixe em branco)"
             className="w-full resize-none rounded-xl border border-navy/15 bg-ivory px-4 py-2.5 text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-gold"
           />
         </div>
@@ -164,7 +161,7 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
           disabled={status === "sending"}
           className="rounded-full bg-gold px-7 py-2.5 text-sm font-semibold tracking-wide text-navy transition-all hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "sending" ? "Enviando…" : "Enviar recado"}
+          {status === "sending" ? "Enviando…" : "Enviar e ir ao pagamento"}
         </button>
       </div>
     </form>
