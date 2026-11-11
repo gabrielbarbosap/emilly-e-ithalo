@@ -17,24 +17,39 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
     const data = new FormData(form);
     setStatus("sending");
     setError("");
+
+    // Web3Forms (plano grátis) só aceita envio pelo navegador. A access key é
+    // pública por design, então pode ficar no client (NEXT_PUBLIC_).
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setStatus("error");
+      setError("Envio ainda não configurado (falta a chave do Web3Forms).");
+      return;
+    }
+
     try {
-      const res = await fetch("/api/recado", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
-          gift: gift.name,
+          access_key: accessKey,
+          subject: `💌 Recado no site do casamento — de ${data.get("name")}`,
+          from_name: "Site do Casamento Ithalo & Emilly",
           name: data.get("name"),
-          email: data.get("email"),
-          message: data.get("message"),
-          botcheck: data.get("botcheck"),
+          email: data.get("email") || undefined,
+          botcheck: data.get("botcheck") ? true : undefined,
+          message: `Presente escolhido: ${gift.name}\n\nRecado:\n${data.get("message")}`,
         }),
       });
       const json = await res.json();
-      if (res.ok && json.success) {
+      if (json.success) {
         setStatus("sent");
       } else {
         setStatus("error");
-        setError(json.error || "Não foi possível enviar. Tente de novo.");
+        setError(json.message || "Não foi possível enviar. Tente de novo.");
       }
     } catch {
       setStatus("error");

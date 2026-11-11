@@ -29,9 +29,12 @@ Abra [http://localhost:3000](http://localhost:3000).
 
 Ao clicar em "Presentear", o pagamento abre numa nova aba e um modal convida o
 convidado a deixar um recado para o casal. O recado é enviado por e-mail via
-[Web3Forms](https://web3forms.com) (rota `app/api/recado/route.ts`).
+[Web3Forms](https://web3forms.com), direto do navegador (o plano grátis só aceita
+envio client-side; o envio pelo servidor exige plano Pro). Ver `RecadoModal.tsx`.
 
-Para funcionar, defina a variável de ambiente **`WEB3FORMS_ACCESS_KEY`**:
+Para funcionar, defina a variável **`NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`** (precisa
+do prefixo `NEXT_PUBLIC_` porque o envio é no navegador; a access key é pública
+por design):
 
 1. Cadastre o e-mail dos noivos em [web3forms.com](https://web3forms.com) e copie
    a *access key* (os recados chegam nesse e-mail).
