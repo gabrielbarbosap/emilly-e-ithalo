@@ -1,4 +1,5 @@
 import { type Gift, formatBRL } from "@/lib/gifts";
+import { PresentButton } from "./PresentButton";
 
 export function GiftCard({ gift }: { gift: Gift }) {
   return (
@@ -28,23 +29,7 @@ export function GiftCard({ gift }: { gift: Gift }) {
           <span className="font-display text-2xl text-navy">
             {formatBRL(gift.price)}
           </span>
-          {gift.link ? (
-            <a
-              href={gift.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-navy px-5 py-2 text-xs font-semibold tracking-wide text-ivory transition-colors group-hover:bg-gold group-hover:text-navy"
-            >
-              Presentear
-            </a>
-          ) : (
-            <span
-              className="cursor-default rounded-full border border-navy/15 px-5 py-2 text-xs font-semibold tracking-wide text-ink/40"
-              title="Link de pagamento em breve"
-            >
-              Em breve
-            </span>
-          )}
+          <PresentButton gift={gift} />
         </div>
       </div>
     </article>

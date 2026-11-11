@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Mulish } from "next/font/google";
 import "./globals.css";
+import { RecadoProvider } from "./components/RecadoProvider";
 
 // Serifa romântica e de alto contraste — os nomes do casal, os títulos.
 const display = Cormorant_Garamond({
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="min-h-full font-body">{children}</body>
+      <body className="min-h-full font-body">
+        <RecadoProvider>{children}</RecadoProvider>
+      </body>
     </html>
   );
 }
