@@ -32,7 +32,7 @@ export default function PresentesPage() {
           {SHOW_GIFTS ? (
             <>
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold">
-                De R$ 150 até os sonhos maiores
+                Presenteie com carinho
               </p>
               <h1 className="mt-6 font-display text-5xl font-light sm:text-6xl">
                 Lista de Presentes

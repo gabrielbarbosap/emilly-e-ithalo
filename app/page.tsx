@@ -61,7 +61,7 @@ export default function Home() {
             className="animate-fade text-xs font-semibold uppercase tracking-[0.5em] text-gold-soft"
             style={{ animationDelay: "0.1s" }}
           >
-            Vamos nos casar
+            {WEDDING.verse}
           </p>
 
           <div className="animate-rise mt-8" style={{ animationDelay: "0.25s" }}>
@@ -78,28 +78,22 @@ export default function Home() {
           </h1>
 
           <p
-            className="animate-rise mx-auto mt-8 max-w-xl font-display text-xl font-light italic leading-relaxed text-ivory/85 sm:text-2xl"
+            className="animate-rise mx-auto mt-8 max-w-2xl font-display text-xl font-light italic leading-relaxed text-ivory/85 sm:text-2xl"
             style={{ animationDelay: "0.6s" }}
           >
-            Mais do que presentes, gestos de amor — ajude a gente a construir,
-            com conforto e carinho, o começo de uma vida juntos.
+            “Para que todos vejam, e saibam, e considerem, e juntamente entendam
+            que a mão do Senhor fez isto, e o Santo de Israel o criou.”
           </p>
 
           <div
-            className="animate-rise mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="animate-rise mt-11 flex justify-center"
             style={{ animationDelay: "0.8s" }}
           >
             <a
               href="/presentes"
-              className="rounded-full bg-gold px-9 py-3.5 text-sm font-semibold tracking-wide text-navy transition-all hover:bg-gold-soft hover:shadow-[0_8px_30px_rgba(198,161,91,0.35)]"
+              className="rounded-full bg-gold px-10 py-3.5 text-sm font-semibold tracking-wide text-navy transition-all hover:bg-gold-soft hover:shadow-[0_8px_30px_rgba(198,161,91,0.35)]"
             >
               Escolher um presente
-            </a>
-            <a
-              href="#historia"
-              className="rounded-full border border-ivory/25 px-9 py-3.5 text-sm font-semibold tracking-wide text-ivory/90 transition-all hover:border-ivory/60"
-            >
-              Nossa história
             </a>
           </div>
 
@@ -112,39 +106,6 @@ export default function Home() {
             </p>
             <p>{WEDDING.place.toUpperCase()}</p>
           </div>
-        </div>
-      </section>
-
-      {/* ───────────── HISTÓRIA / MENSAGEM ───────────── */}
-      <section id="historia" className="relative bg-ivory px-6 py-28 md:py-36">
-        <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
-            <Ornament className="mb-10" />
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold">
-              Um recado nosso
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <h2 className="mt-7 font-display text-4xl font-light leading-tight text-navy sm:text-5xl">
-              A gente não quer coisas.
-              <br />
-              Quer construir um lar com você por perto.
-            </h2>
-          </Reveal>
-          <Reveal delay={220}>
-            <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ink/75">
-              Cada presente dessa lista é um pedacinho da nossa casa, da nossa
-              primeira viagem, dos nossos primeiros jantares. Você não compra um
-              objeto — você deixa um abraço que a gente vai sentir por muito
-              tempo. Do mais simples ao maior dos sonhos, o que importa é ter
-              você com a gente nesse começo.
-            </p>
-          </Reveal>
-          <Reveal delay={320}>
-            <p className="mt-10 font-display text-2xl italic text-navy/80">
-              Com amor, {WEDDING.coupleFirst} &amp; {WEDDING.coupleSecond}
-            </p>
-          </Reveal>
         </div>
       </section>
 
@@ -207,7 +168,7 @@ export default function Home() {
                 <Reveal>
                   <Ornament className="mb-10" />
                   <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gold">
-                    De R$ 150 até os sonhos maiores
+                    Presenteie com carinho
                   </p>
                   <h2 className="mt-6 font-display text-4xl font-light text-navy sm:text-5xl">
                     Nossa lista de presentes
