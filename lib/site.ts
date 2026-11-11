@@ -1,10 +1,11 @@
-// Dados do casamento exibidos no site.
-// TODO: trocar pelos valores reais (data e local).
+// Dados do casamento exibidos no site (do convite oficial).
 export const WEDDING = {
-  coupleFirst: "Ithalo",
-  coupleSecond: "Emilly",
-  date: "Em breve",
-  place: "São Paulo · SP",
+  coupleFirst: "Emilly",
+  coupleSecond: "Ithalo",
+  date: "24 de Janeiro de 2027",
+  time: "10h30",
+  place: "Ballroom · Casa Forte",
+  verse: "Isaías 41:20",
 };
 
 // Interruptor da lista de presentes.

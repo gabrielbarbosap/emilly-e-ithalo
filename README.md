@@ -1,6 +1,6 @@
 # Emilly & Ithalo — Lista de Presentes
 
-Site da lista de presentes do casamento de **Ithalo & Emilly**. Os convidados
+Site da lista de presentes do casamento de **Emilly & Ithalo**. Os convidados
 escolhem um presente e pagam direto pela InfinitePay — o valor vai para a conta
 do casal.
 

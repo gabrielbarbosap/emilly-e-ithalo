@@ -37,7 +37,7 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
         body: JSON.stringify({
           access_key: accessKey,
           subject: `💌 Recado no site do casamento — de ${data.get("name")}`,
-          from_name: "Site do Casamento Ithalo & Emilly",
+          from_name: "Site do Casamento Emilly & Ithalo",
           name: data.get("name"),
           email: data.get("email") || undefined,
           botcheck: data.get("botcheck") ? true : undefined,
@@ -67,7 +67,7 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
           Recado enviado!
         </h2>
         <p className="mt-3 text-ink/70">
-          Obrigado por fazer parte do nosso começo. Ithalo e Emilly vão ler com
+          Obrigado por fazer parte do nosso começo. Emilly e Ithalo vão ler com
           muito carinho.
         </p>
         <button
@@ -92,7 +92,7 @@ function RecadoForm({ gift, onClose }: { gift: Gift; onClose: () => void }) {
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-ink/70">
         O pagamento abriu em outra aba. Enquanto isso, deixe um recado para
-        Ithalo &amp; Emilly — ele vai direto para o e-mail do casal. 💌
+        Emilly &amp; Ithalo — ele vai direto para o e-mail do casal. 💌
       </p>
 
       {/* Honeypot anti-spam (escondido) */}

@@ -7,9 +7,9 @@ import { GiftsComingSoon } from "../components/GiftsComingSoon";
 import { SHOW_GIFTS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Lista de Presentes — Ithalo & Emilly",
+  title: "Lista de Presentes — Emilly & Ithalo",
   description:
-    "Escolha um presente e ajude Ithalo e Emilly a construir o começo de uma vida juntos.",
+    "Escolha um presente e ajude Emilly e Ithalo a construir o começo de uma vida juntos.",
 };
 
 export default function PresentesPage() {

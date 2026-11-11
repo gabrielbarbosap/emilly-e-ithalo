@@ -52,9 +52,9 @@ export default function Home() {
           aria-hidden
         />
 
-        {/* Moldura fina de convite */}
-        <div className="pointer-events-none absolute inset-4 border border-gold/25 sm:inset-6 md:inset-8" />
-        <div className="pointer-events-none absolute inset-5 border border-gold/10 sm:inset-7 md:inset-9" />
+        {/* Moldura fina de convite — começa abaixo do menu fixo pra não cobri-lo */}
+        <div className="pointer-events-none absolute bottom-4 left-4 right-4 top-24 border border-gold/25 sm:bottom-6 sm:left-6 sm:right-6 sm:top-28 md:bottom-8 md:left-8 md:right-8" />
+        <div className="pointer-events-none absolute bottom-5 left-5 right-5 top-[6.5rem] border border-gold/10 sm:bottom-7 sm:left-7 sm:right-7 sm:top-[7.5rem] md:bottom-9 md:left-9 md:right-9" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
           <p
@@ -103,12 +103,15 @@ export default function Home() {
             </a>
           </div>
 
-          <p
-            className="animate-fade mt-14 text-sm tracking-[0.25em] text-ivory/55"
+          <div
+            className="animate-fade mt-14 space-y-1.5 text-sm tracking-[0.25em] text-ivory/55"
             style={{ animationDelay: "1s" }}
           >
-            {WEDDING.date.toUpperCase()} &nbsp;·&nbsp; {WEDDING.place.toUpperCase()}
-          </p>
+            <p>
+              {WEDDING.date.toUpperCase()} &nbsp;·&nbsp; {WEDDING.time.toUpperCase()}
+            </p>
+            <p>{WEDDING.place.toUpperCase()}</p>
+          </div>
         </div>
       </section>
 

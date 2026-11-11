@@ -19,9 +19,9 @@ const body = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "Ithalo & Emilly — Lista de Presentes",
+  title: "Emilly & Ithalo — Lista de Presentes",
   description:
-    "Mais do que presentes, gestos de amor. Ajude Ithalo e Emilly a construir o começo de uma vida juntos.",
+    "Mais do que presentes, gestos de amor. Ajude Emilly e Ithalo a construir o começo de uma vida juntos.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

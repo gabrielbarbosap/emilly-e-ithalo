@@ -10,9 +10,15 @@ export function SiteFooter() {
         {WEDDING.coupleSecond}
       </p>
       <p className="mt-4 text-sm tracking-[0.25em] text-ivory/55">
-        {WEDDING.date.toUpperCase()} &nbsp;·&nbsp; {WEDDING.place.toUpperCase()}
+        {WEDDING.date.toUpperCase()} &nbsp;·&nbsp; {WEDDING.time.toUpperCase()}
       </p>
-      <p className="mt-10 text-sm text-ivory/45">
+      <p className="mt-1 text-sm tracking-[0.25em] text-ivory/55">
+        {WEDDING.place.toUpperCase()}
+      </p>
+      <p className="mt-8 text-xs uppercase tracking-[0.35em] text-gold/80">
+        {WEDDING.verse}
+      </p>
+      <p className="mt-8 text-sm text-ivory/45">
         Feito com amor para celebrar o nosso começo.
       </p>
     </footer>

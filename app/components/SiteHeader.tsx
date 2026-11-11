@@ -31,9 +31,9 @@ export function SiteHeader() {
         <a
           href="/#inicio"
           className="font-display text-xl tracking-wide text-ivory"
-          aria-label="Ithalo e Emilly — início"
+          aria-label="Emilly e Ithalo — início"
         >
-          Ithalo <span className="italic text-gold">&amp;</span> Emilly
+          Emilly <span className="italic text-gold">&amp;</span> Ithalo
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
